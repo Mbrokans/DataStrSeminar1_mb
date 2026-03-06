@@ -1,9 +1,10 @@
 package service;
 
 import datastr.MyArrayList;
+import model.student;
 
 public class mainservice {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		MyArrayList<Character> symbols = new MyArrayList<Character>(2);
 		symbols.add('a');//a
 		symbols.add('b');//a b
@@ -28,6 +29,16 @@ public class mainservice {
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		MyArrayList<student> allStudents = new MyArrayList<student>();
+		allStudents.add(new student("Mairis","Gleznis" ));
+		allStudents.add(new student("Grubis","Maisins" ));
+		allStudents.add(new student("Adriana","Slavena" ));
+		allStudents.add(new student("Maira", "Upe"), 1);
+		allStudents.print();
+		System.out.println(allStudents.get(3));
+		allStudents.remove(3);
+		allStudents.print();
+		
 		
 		
 	}
