@@ -1,21 +1,21 @@
 package datastr;
 
-public class MyArrayList {
+public class MyArrayList<Ttype> {
 	//1. mainigie
-	private char[] list;
+	private Ttype[] list;
 	private final int DEFAULT_SIZE =8; // pec noklusejuma bus 8 sunu masivs
 	private int size = DEFAULT_SIZE;
 	private int howManyElements = 0;
 	//2. konstrokturi
 	public MyArrayList() {
-		list= new char[size];
+		list= (Ttype[])new Object[size];
 	}
 	public MyArrayList(int inputSize) {
 		if(inputSize>0) {
 			size=inputSize;
 		}
 			
-		list= new char[inputSize];
+		list= (Ttype[])new Object[size];
 	}
 	
 	//3. pamatalgoritmu funkcijas
@@ -35,7 +35,7 @@ public class MyArrayList {
 	}
 	private void resize() {
 		int largeSize = (howManyElements<100)? size*2: (int)(size*1.5);
-		char[] largeList = new char[largeSize];
+		Ttype[] largeList = (Ttype[])new Object[largeSize];
 		for(int i=0; i<howManyElements;i++) {
 			largeList[i] = list[i];
 		}
@@ -44,7 +44,7 @@ public class MyArrayList {
 		size= largeSize;
 		
 	}
-	public void add(char element) {
+	public void add(Ttype element) {
 		if(isFull()) {
 			resize();
 		}
@@ -54,7 +54,7 @@ public class MyArrayList {
 		
 	}
 	// pievieno elemntu
-	public void add(char element, int index) throws Exception {
+	public void add(Ttype element, int index) throws Exception {
 		if(index<0) {
 			throw (new Exception("Nevar pievienot elemntu jo index ir negativs"));
 			
@@ -94,7 +94,7 @@ public class MyArrayList {
 		for(int i = index; i<howManyElements-1;i++) {
 			list[i]= list[i+1];
 		}
-		list[howManyElements-1]=' ';
+		list[howManyElements-1]=null;
 		howManyElements--;
 	}
 	// izprinte
@@ -108,7 +108,7 @@ public class MyArrayList {
 		System.out.println();
 	}
 	//parada elemntu
-	public char get(int index)throws Exception {
+	public Ttype get(int index)throws Exception {
 		if(isEmpty()) {
 			throw (new Exception("Nevar paradit elementu"));
 		}
@@ -121,19 +121,19 @@ public class MyArrayList {
 		return list[index];
 	}
 	// meklesana
-	public int search(char element)throws Exception {
+	public int search(Ttype element)throws Exception {
 		if(isEmpty()) {
 			throw (new Exception("saraksrs ir tukss nevar sameklet elementu"));
 		}
 		for( int i=0;i<howManyElements;i++) {
-			if(list[i]==element) {
+			if(list[i].equals(element)) {
 				return i;
 			}
 		}
 		
 		throw (new Exception("mekletais elements nav atrasts"));
 	}
-	public char getNextElement(char element) throws Exception{
+	public Ttype getNextElement(Ttype element) throws Exception{
 		int indexOfSearch = search(element);
 		if(indexOfSearch==howManyElements-1) { // ja mekletais elements ir pedejais
 			throw (new Exception("jsus ievaditais elements ir atrasts ka pedejais un aiz to neka nav"));
@@ -144,8 +144,9 @@ public class MyArrayList {
 	public void sort() {
 		for(int i=0;i<howManyElements;i++) {
 			for(int j=0; j<howManyElements;j++) {
-				if(list[i]<list[j]) {
-					char temp= list[i];
+//				if(list[i] < list[j]) {
+				if(((Comparable)list[i]).compareTo(list[j]) == -1) {
+					Ttype temp= list[i];
 					list[i]=list[j];
 					list[j]=temp;
 				}
@@ -157,7 +158,7 @@ public class MyArrayList {
 		System.gc();
 		howManyElements=0;
 		size= DEFAULT_SIZE;
-		list = new char[size];
+		list = (Ttype[]) new Object[size];
 	}
 	
 	
