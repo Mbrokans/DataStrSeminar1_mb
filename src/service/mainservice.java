@@ -20,6 +20,10 @@ public class mainservice {
 			System.out.println(symbols.getNextElement('a'));// Z
 			symbols.sort();
 			symbols.print();
+			
+			symbols.MakeEmpty();// viss tiek dzests
+			symbols.add('W');
+			symbols.print();
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

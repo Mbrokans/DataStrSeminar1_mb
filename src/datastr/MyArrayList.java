@@ -152,6 +152,13 @@ public class MyArrayList {
 			}
 		}
 	}
+	public void MakeEmpty() {
+		list=null;
+		System.gc();
+		howManyElements=0;
+		size= DEFAULT_SIZE;
+		list = new char[size];
+	}
 	
 	
 	
