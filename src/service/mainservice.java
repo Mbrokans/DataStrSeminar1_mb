@@ -1,0 +1,24 @@
+package service;
+
+import datastr.MyArrayList;
+
+public class mainservice {
+	public static void main(String[] args) {
+		MyArrayList symbols = new MyArrayList(2);
+		symbols.add('a');//a
+		symbols.add('b');//a b
+		symbols.add('c');//a b c (automatiski bus resize izpildijies)
+		try {
+			symbols.print();//a b c
+			symbols.add('Z',1);// a Z b c
+			symbols.print();
+			symbols.remove(2);// izdzest b
+			symbols.print();
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+	}
+}
