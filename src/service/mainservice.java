@@ -17,7 +17,9 @@ public class mainservice {
 			System.out.println(symbols.get(1));
 			
 			System.out.println(symbols.search('c')); // 2. pozicija
-			System.out.println(symbols.getNextElement('a'));
+			System.out.println(symbols.getNextElement('a'));// Z
+			symbols.sort();
+			symbols.print();
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
