@@ -58,8 +58,42 @@ public class MyArrayList {
 			throw (new Exception("Nevar pievienot elemntu jo index ir negativs"));
 			
 		}
-			
+		if(index> howManyElements) {
+			throw new Exception("Nevar pievienot elementu, jo index ir lielaks par elemntu");
+		}
+		if(isFull()) {
+			resize();
+		}
+		if(index == howManyElements) {
+			add(element);
+		}
+		else {
+			if(isFull()) {
+				resize();
+			}
+			for(int i = howManyElements;i>index;i--) {
+				list[i]= list[i-1];
+			}
+			list[index]= element;
+			howManyElements++;
+		}
 		
+	}
+	public void remove(int index) throws Exception{
+		if(isEmpty()) {
+			throw (new Exception("saraksts ir tukss"));
+		}
+		if(index<0) {
+			throw (new Exception("Nevar izdzest elemntu"));
+		}
+		if(index>howManyElements) {
+			throw (new Exception("nevar izdzest elemntu"));
+		}
+		for(int i = index; i<howManyElements-1;i++) {
+			list[i]= list[i+1];
+		}
+		list[howManyElements-1]=' ';
+		howManyElements--;
 	}
 	
 	
