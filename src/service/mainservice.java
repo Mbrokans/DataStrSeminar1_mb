@@ -14,6 +14,7 @@ public class mainservice {
 			symbols.print();
 			symbols.remove(2);// izdzest b
 			symbols.print();
+			System.out.println(symbols.get(1));
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
