@@ -53,6 +53,7 @@ public class MyArrayList {
 		
 		
 	}
+	// pievieno elemntu
 	public void add(char element, int index) throws Exception {
 		if(index<0) {
 			throw (new Exception("Nevar pievienot elemntu jo index ir negativs"));
@@ -79,6 +80,7 @@ public class MyArrayList {
 		}
 		
 	}
+	// iznem elemntu
 	public void remove(int index) throws Exception{
 		if(isEmpty()) {
 			throw (new Exception("saraksts ir tukss"));
@@ -95,6 +97,7 @@ public class MyArrayList {
 		list[howManyElements-1]=' ';
 		howManyElements--;
 	}
+	// izprinte
 	public void print()throws Exception {
 		if(isEmpty()) {
 			throw (new Exception("Saraksts ir tukss un to nevar izprintet"));
@@ -104,6 +107,7 @@ public class MyArrayList {
 		}
 		System.out.println();
 	}
+	//parada elemntu
 	public char get(int index)throws Exception {
 		if(isEmpty()) {
 			throw (new Exception("Nevar paradit elementu"));
@@ -116,6 +120,7 @@ public class MyArrayList {
 		}
 		return list[index];
 	}
+	// meklesana
 	public int search(char element)throws Exception {
 		if(isEmpty()) {
 			throw (new Exception("saraksrs ir tukss nevar sameklet elementu"));
@@ -128,7 +133,14 @@ public class MyArrayList {
 		
 		throw (new Exception("mekletais elements nav atrasts"));
 	}
-	
+	public char getNextElement(char element) throws Exception{
+		int indexOfSearch = search(element);
+		if(indexOfSearch==howManyElements-1) { // ja mekletais elements ir pedejais
+			throw (new Exception("jsus ievaditais elements ir atrasts ka pedejais un aiz to neka nav"));
+		}
+		int indexForNextElement = indexOfSearch+1;
+		return list[indexForNextElement];
+	}
 	
 	
 	
