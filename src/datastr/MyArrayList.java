@@ -116,6 +116,18 @@ public class MyArrayList {
 		}
 		return list[index];
 	}
+	public int search(char element)throws Exception {
+		if(isEmpty()) {
+			throw (new Exception("saraksrs ir tukss nevar sameklet elementu"));
+		}
+		for( int i=0;i<howManyElements;i++) {
+			if(list[i]==element) {
+				return i;
+			}
+		}
+		
+		throw (new Exception("mekletais elements nav atrasts"));
+	}
 	
 	
 	
