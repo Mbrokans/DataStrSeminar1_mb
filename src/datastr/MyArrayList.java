@@ -104,7 +104,18 @@ public class MyArrayList {
 		}
 		System.out.println();
 	}
-	
+	public char get(int index)throws Exception {
+		if(isEmpty()) {
+			throw (new Exception("Nevar paradit elementu"));
+		}
+		if(index<0) {
+			throw (new Exception("Nevar paradit mazaku elementu"));
+		}
+		if(index>howManyElements) {
+			throw (new Exception("Nevar paradit lielaku elemntu"));
+		}
+		return list[index];
+	}
 	
 	
 	
