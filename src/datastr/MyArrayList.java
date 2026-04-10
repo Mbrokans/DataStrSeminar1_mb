@@ -37,11 +37,14 @@ public class MyArrayList {
 	     System.out.println("Sorted list:");
 	     for (int num : numbers) {
 	     System.out.print(num + " ");
+	     }
+	     System.out.println();
 	     System.out.println("Sorted name list: ");
 	     for(String names : studenti) {
 	    	 System.out.println(names+" ");
 	     }
 	        }
-	    }
+	
+	
 	}
 
